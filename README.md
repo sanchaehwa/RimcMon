@@ -4,7 +4,7 @@
 다양한 활동을 통해 자신의 역량을 성장시키고, 새로운 기회를 발견하는 것을 목표로 합니다.<br>
 ### 🧑🏻‍💻 Developers 
 
-| [<img src="https://avatars.githubusercontent.com/bum0w0" width="100px;" alt="bum0w0"/>](https://github.com/bum0w0) | [<img src="https://avatars.githubusercontent.com/chanyoung1256" width="100px;" alt="chanyoung1256"/>](https://github.com/Hermes765) | [<img src="https://avatars.githubusercontent.com/sanchaehwa" width="100px;" alt="sanchaehwa"/>](https://github.com/sanchaehwa) | [<img src="https://avatars.githubusercontent.com/krdevdory" width="100px;" alt="krdevdory"/>](https://github.com/krdevdory) |
+| [<img src="https://avatars.githubusercontent.com/bum0w0" width="100px;" alt="bum0w0"/>](https://github.com/bum0w0) | [<img src="https://avatars.githubusercontent.com/chanyoung1256" width="100px;" alt="chanyoung1256"/>](https://github.com/chanyoung1256) | [<img src="https://avatars.githubusercontent.com/sanchaehwa" width="100px;" alt="sanchaehwa"/>](https://github.com/sanchaehwa) | [<img src="https://avatars.githubusercontent.com/krdevdory" width="100px;" alt="krdevdory"/>](https://github.com/krdevdory) |
 |:---------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------:|
 | **김진범**                                                                                                      | **김찬영**                                                                                                       | **양화영**                                                                                                         | **안봉근**                                                                                                       |
 
@@ -24,7 +24,7 @@
 |📁 Build|빌드 관련 파일 수정|
 |🎨 Design|CSS를 포함 UI 디자인 변경|
 |📄 Docs|문서(문서 추가, 수정, 삭제)|
-|📝Test|테스트(테스트 코드 추가, 수정, 삭제: 비즈니스 로직에 변경 없는 경우)|
+|📝 Test|테스트(테스트 코드 추가, 수정, 삭제: 비즈니스 로직에 변경 없는 경우)|
 |♻️ Rename|파일, 폴더명 이름 수정|
 |🔥 Remove|파일, 폴더 삭제|
 
