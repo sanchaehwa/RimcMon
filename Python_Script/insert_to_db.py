@@ -3,7 +3,7 @@ import sys
 import os
 # 현재 파일의 상위 디렉토리를 경로에 추가
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/..")
-from Crawler import get_contest_data
+from Crawling.Crawler import get_contest_data
 
 # 요청을 보낼 URL
 url = "http://opsw4.dothome.co.kr/insert_into_crawl_data.php"
