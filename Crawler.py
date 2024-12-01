@@ -43,10 +43,10 @@ def get_contest_data():
     driver.quit()
     return contest_data
 
-# 데이터 크롤링 결과
-data = get_contest_data()
+# # 데이터 크롤링 결과
+# data = get_contest_data()
 
-# json 형식으로 formatting
-crwaling_data = json.dumps(data, ensure_ascii=False, indent=4)
+# # json 형식으로 formatting
+# crwaling_data = json.dumps(data, ensure_ascii=False, indent=4)
 
-print(crwaling_data)
+# print(crwaling_data)
