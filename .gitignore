@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# chrome driver
+chrome-mac-arm64/
+
 # Distribution / packaging
 .Python
 build/
