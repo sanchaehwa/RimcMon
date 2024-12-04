@@ -1,4 +1,7 @@
 import streamlit as st
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__) + '/..')))
 from Python_Script.select_from_db import get_mysql_data
 
 # 데이터를 가져와서 Streamlit에 표시하기
