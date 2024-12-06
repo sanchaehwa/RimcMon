@@ -1,4 +1,13 @@
 import streamlit as st
+import json
+import logging
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/..")
+#db 연결
+#from Python_Script_Profile.insert_to_db import send_data_to_server, combine_data_for_db  
+# 로깅 설정
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(message)s")
 
 # 초기화 함수
 def initialize_state(user_data):
@@ -23,6 +32,9 @@ def get_skills():
 def save_changes():
     st.session_state.page = "display"
     st.session_state.self_intro = st.session_state.self_intro
+    #json_data = json.dumps(combine_data_for_db(get_skills(), st.session_state), ensure_ascii=False, indent=4)
+    # logging.info("저장된 정보: %s", json_data)
+    #send_data_to_server(combine_data_for_db(get_skills(), st.session_state))  # 서버로 데이터 전송
     st.success("정보가 저장되었습니다.")
 
 # 입력 페이지 렌더링
@@ -76,3 +88,5 @@ def main(user_data):
         render_input_page(skills)
     elif st.session_state.page == "display":
         render_display_page(skills)
+    #서버 전송
+    # send_data_to_server(combine_data_for_db(skills, st.session_state))
