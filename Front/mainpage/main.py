@@ -11,7 +11,7 @@ page = st.session_state["page"]
 
 # 메인 페이지
 if page == "main":
-    st.image("./img/림크몬.png", use_container_width=True)
+    st.image("../img/림크몬.png", use_container_width=True)
     _, exp_col, _ = st.columns([1,5,1])
     with exp_col:
         with st.expander("**📖 림크몬 **"):
