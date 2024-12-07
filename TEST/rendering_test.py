@@ -1,10 +1,12 @@
 import streamlit as st
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/..")
 from Python_Script.select_from_db import get_mysql_data
 
 # 데이터를 가져와서 Streamlit에 표시하기
 def display_data():
     data = get_mysql_data()
-
 
     # CSS 스타일 추가
     st.markdown(
