@@ -1,9 +1,10 @@
 import streamlit as st
 import json
 import os
+
 from profile import main as profile_main  # 이미 구현된 프로필 페이지를 import
 
-# JSON 파일 경로 설정
+# JSON 파일 (테스팅용으로 더미데이터 생성)
 DATA_FILE = "user_data.json"
 
 # 초기화 함수
@@ -12,21 +13,24 @@ def initialize_session():
         st.session_state.current_page = "login"
     if "user_data" not in st.session_state:
         st.session_state.user_data = None  # 현재 로그인된 사용자 정보 저장
-
+## JSON 파일 로딩을 위한 코드
 # 데이터 파일 로드
 def load_data():
     if os.path.exists(DATA_FILE):
         with open(DATA_FILE, "r", encoding="utf-8") as file:
             return json.load(file)
-    return {"users": []}  # 파일이 없으면 빈 데이터 반환
+    return {"users": []} 
 
 # 데이터 파일 저장
 def save_data(data):
     with open(DATA_FILE, "w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=4)
 
-# 사용자 조회 함수
+# 사용자 조회
 def get_user_from_db(username, password):
+    #db_url = ".php"
+    #payload = {"name": username, "password": password}
+    
     data = load_data()
     for user in data["users"]:
         if user["name"] == username and user["password"] == password:
@@ -66,7 +70,7 @@ def register_page():
     password = st.text_input("비밀번호", placeholder="비밀번호를 입력하세요", type="password")
 
     if st.button("등록하기"):
-        if len(password) < 4:  # 4자리 이상이어야만 가능하게
+        if len(password) > 4:  # 4자리
             st.error("비밀번호는 최소 4자리 이상으로 설정해주세요")
         elif not username.strip():
             st.error("이름을 입력해주세요")
