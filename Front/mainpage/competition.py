@@ -1,7 +1,7 @@
 import streamlit as st
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__) + '/..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__) + '/../..')))
 from Python_Script.select_from_db import get_mysql_data
 
 # 데이터 초기화
@@ -75,3 +75,4 @@ if __name__ == "__main__":
     display_posters(data)
     if st.button("메인으로 돌아가기"):
         st.session_state["page"] = "main"
+        st.rerun()
