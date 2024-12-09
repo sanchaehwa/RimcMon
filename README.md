@@ -2,12 +2,36 @@
 대학생을 위한 프로젝트 / 공모전 등의 매칭 서비스를 제공하는 림크몬 👾 개발 저장소입니다. <br> 
 림크몬은 대학생이 자신의 관심사와 전공 등 역량에 맞는 활동에 참여할 수 있도록 돕는 매칭 서비스입니다.<br> 
 다양한 활동을 통해 자신의 역량을 성장시키고, 새로운 기회를 발견하는 것을 목표로 합니다.<br>
+## 👋🏻 Introduction
 ### 🧑🏻‍💻 Developers 
 
 | [<img src="https://avatars.githubusercontent.com/bum0w0" width="100px;" alt="bum0w0"/>](https://github.com/bum0w0) | [<img src="https://avatars.githubusercontent.com/chanyoung1256" width="100px;" alt="chanyoung1256"/>](https://github.com/chanyoung1256) | [<img src="https://avatars.githubusercontent.com/sanchaehwa" width="100px;" alt="sanchaehwa"/>](https://github.com/sanchaehwa) | [<img src="https://avatars.githubusercontent.com/krdevdory" width="100px;" alt="krdevdory"/>](https://github.com/krdevdory) |
 |:---------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------:|
 | **김진범**                                                                                                      | **김찬영**                                                                                                       | **양화영**                                                                                                         | **안봉근**                                                                                                       |
 
+
+ ### 👾 림크몬 기능 소개
+ #### 1️⃣ **메인 페이지** <br><br>
+<img src="https://github.com/user-attachments/assets/78839362-d0f8-402f-9f42-509c02a42147" width="40%"> <br>
+
+* 사이드바를 통해 공모전, 스터디, 프로젝트, 동아리 등 필요한 정보를 확인할 수 있습니다
+* 공모전 페이지에서는 위 이미지처럼 진행 중인 공모전 정보를, 스터디 페이지에서는 스터디 목록을 확인할 수 있습니다. 
+* 프로젝트 및 동아리 페이지에서는 파일 업로드 기능을 통해 손쉽게 활동을 홍보하고 참여를 유도하는 것도 가능합니다 :)
+
+ #### 2️⃣ **프로필 페이지** <br><br>
+![프로필](https://github.com/user-attachments/assets/3d667dab-0a2e-4f87-81c7-19a9c41e6ff7)
+
+
+* 댓글을 남긴 팀원의 프로필을 클릭하면 간단한 정보를 확인할 수 있어 팀원을 파악하고 효율적으로 팀을 구성할 수 있습니다. 
+* 자신을 PR 할 수 있는 프로필을 등록할 수 있는 기능을 제공합니다.
+* 대학생이 자주 사용하는 기술 목록을 제공하여, 이를 기반으로 자신이 활용 가능한 기술을 프로필에 등록할 수 있도록 하였습니다.
+
+ #### 3️⃣ **관리자 페이지** <br><br>
+![관리자페이지](https://github.com/user-attachments/assets/1a9dcda7-62e6-49db-b310-d015f3f54499)
+
+* 관리자는 관리자 페이지를 통해 데이터베이스에 등록된 정보를 효율적으로 조회, 수정, 삭제할 수 있습니다.
+
+## 👥 Cooperation
 ###  💭 Message Format
  | Message Type      | Description          | Example               |
 |:----------------:|:--------------------:|:---------------------:|
@@ -46,3 +70,31 @@ Main Branch
 #### RuleSet
 1. Reviewer가(2명 이상) PR을 승인할 시에, PR Merge 가능
 2. PR에 새로운 commit 추가 시, 이전의 PR 승인을 무효화하고 재검토
+
+## ✨ Development
+ 
+### ⚒️ Project Tech Stack 
+| **Category**          | **Technologies**                                                                                                                                                                |
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Backend**           | ![php](https://img.shields.io/badge/php-777BB4?style=flat-square&logo=php&logoColor=white) ![mysql](https://img.shields.io/badge/mysql-4479A1?style=flat-square&logo=mysql&logoColor=white) ![python](https://img.shields.io/badge/python-3776AB?style=flat-square&logo=python&logoColor=white)|
+| **Frontend & Communication** | ![streamlit](https://img.shields.io/badge/streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white) ![Figma](https://img.shields.io/badge/figma-F24E1E?style=flat-square&logo=figma&logoColor=white)|
+
+### 📁 File Structure
+ ```
+RIMCMON
+├── 
+├── Crawling/ #데이터 크롤링 관련
+├── Front/ #Main & Profile Web 관련
+├── PHP_Script/ #Main PHP Server 관련
+├── PHP_Script_Profile/ #Profile PHP Server 관련
+├── Python_Script/ #Main DB 관련
+├── Python_Script_Profile/ #Profile DB 관련
+├── TEST/
+├── venv/ # 가상환경
+├── .gitignore
+├── README.md
+└── requirements.txt
+ ```
+### ⚙️ Project preferences
+-  ```Python3 -m venv venv ``` 가상환경을 Local에서 생성해주세요 *가상환경 진입후 
+- ``` pip install -r requirements.txt``` 림크몬 프로젝트에 필요한 라이브러리를 읽어와주세요
