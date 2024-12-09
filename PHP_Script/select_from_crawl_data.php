@@ -29,7 +29,8 @@ if ($result->num_rows > 0) {
             "id" => $row["id"],
             "title" => $row["title"],
             "date" => $row["date"],
-            "image" => $row["image"]
+            "image" => $row["image"],
+            "page" => $row["page"]
         ];
     }
     echo json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
