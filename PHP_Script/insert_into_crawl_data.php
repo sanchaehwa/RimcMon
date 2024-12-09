@@ -15,9 +15,10 @@ if ($conn->connect_error) {
 $title = isset($_GET['title']) ? $_GET['title'] : null;
 $date = isset($_GET['date']) ? $_GET['date'] : null;
 $image = isset($_GET['image']) ? $_GET['image'] : null;
+$page = isset($_GET['page']) ? $_GET['page'] : null;
 
 // 데이터 유효성 확인
-if ($title && $date && $image) {
+if ($title && $date && $image && $page) {
     // 압축 이미지를 저장할 폴더 및 파일명 설정
     $compressed_dir = __DIR__ . '/compressed';
     $image_name = basename($image);
@@ -78,8 +79,12 @@ if ($title && $date && $image) {
     echo "이미지 압축 완료. ";
     
     // 데이터베이스에 삽입할 SQL 쿼리 작성
-    $sql = "INSERT INTO crawl_data (title, date, image) VALUES ('" . $conn->real_escape_string($title) . "', 
-    '" . $conn->real_escape_string($date) . "', 'http://opsw4.dothome.co.kr/compressed/" . $conn->real_escape_string($image_name) . "')";
+    $sql = "INSERT INTO crawl_data (title, date, image, page) VALUES (
+        '" . $conn->real_escape_string($title) . "', 
+        '" . $conn->real_escape_string($date) . "', 
+        'http://opsw4.dothome.co.kr/compressed/" . $conn->real_escape_string($image_name) . "', 
+        '" . $conn->real_escape_string($page) . "'
+    )";
     
     // 쿼리 실행
     if ($conn->query($sql) === TRUE) {
