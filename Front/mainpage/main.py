@@ -35,18 +35,23 @@ if page == "main":
     # 사이드바 메뉴
     if st.sidebar.button("공모전"):
         st.session_state["page"] = "competition"
+        st.rerun()
 
     if st.sidebar.button("스터디 바로가기"):
         st.session_state["page"] = "study"
+        st.rerun()
 
     if st.sidebar.button("동아리 바로가기"):
         st.session_state["page"] = "club"
+        st.rerun()
 
     if st.sidebar.button("팀원 모집 바로가기"):
         st.session_state["page"] = "recruitment"
+        st.rerun()
 
     if st.sidebar.button("자유 게시판 바로가기"):
         st.session_state["page"] = "board"
+        st.rerun()
 
 # 페이지 전환
 elif page == "competition":

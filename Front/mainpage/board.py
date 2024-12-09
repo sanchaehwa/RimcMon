@@ -38,7 +38,7 @@ st.markdown(
         text-align: right;
         margin-top: 15px;
     }
-    .form-container {
+    .form-containe
         border: 1px solid #dee2e6;
         padding: 15px;
         border-radius: 10px;

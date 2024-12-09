@@ -75,3 +75,4 @@ if __name__ == "__main__":
     display_posters(data)
     if st.button("메인으로 돌아가기"):
         st.session_state["page"] = "main"
+        st.rerun()
