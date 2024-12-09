@@ -81,5 +81,5 @@ def get_link_data():
     finally:
         driver.quit()
 
-data = get_link_data()
-print(data)
+# data = get_link_data()
+# print(data)
