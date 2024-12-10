@@ -9,7 +9,7 @@ def update_user_data(data):
         "name": data['name'],
         "password": data['password'],
         "bio": data['bio'],
-        "tool": data['tool']
+        "tool": ', '.join([item.strip('"') for item in data['tool']]),  # 각 항목의 따옴표 제거
     }
 
     response = requests.get(url, params=params)
