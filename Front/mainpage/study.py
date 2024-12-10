@@ -34,3 +34,4 @@ else:
 # 메인 페이지로 돌아가는 버튼
 if st.button("메인으로 돌아가기"):
     st.session_state["page"] = "main"
+    st.rerun()

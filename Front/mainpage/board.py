@@ -72,7 +72,7 @@ with st.expander("### 게시글 목록"):
 # 게시판 글 작성
 with st.expander("** 등록 **"):
     with st.container():
-        st.markdown('<div class="form-container">', unsafe_allow_html=True)
+        # st.markdown('<div class="form-container">', unsafe_allow_html=True)
         title = st.text_input("제목", placeholder="글 제목을 입력하세요.")
         content = st.text_area("내용", placeholder="글 내용을 입력하세요.")
         author = st.text_input("작성자", placeholder="작성자의 이름을 입력하세요.")
@@ -93,3 +93,6 @@ with st.expander("** 등록 **"):
         st.markdown("</div>", unsafe_allow_html=True)
 
 # 게시판 글 목록
+if st.button("메인으로 돌아가기"):
+    st.session_state["page"] = "main"
+    st.rerun()
