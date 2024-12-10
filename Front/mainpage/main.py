@@ -1,13 +1,13 @@
 import streamlit as st
 
 st.snow()
+
 # 초기 상태 설정
 if "page" not in st.session_state:
     st.session_state["page"] = "main"
 
 # 페이지 상태 확인
 page = st.session_state["page"]
-
 
 # 메인 페이지
 if page == "main":
