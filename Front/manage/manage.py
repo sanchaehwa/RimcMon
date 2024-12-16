@@ -3,6 +3,8 @@ import requests
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../..")
+from Python_Script.insert_to_db import insert_mysql_data
+from Python_Script.reset_data import reset_mysql_data
 from Python_Script.select_from_db import get_mysql_data
 from Python_Script_Manage.select_from_db import get_user_data
 
@@ -23,22 +25,23 @@ def page_1():
 
    # 목록 페이지
     if st.session_state["page"] == "list":
-        st.title("공모전 관리 (" + str(len(data)) + ")")
+        st.title("공모전 관리 (" + ('0' if type(data) == dict and data['message'] == "데이터가 없습니다" else str(len(data))) + ")")
 
         # 데이터 출력
-        for entry in data:
-            col1, col2, col3 = st.columns([1, 8, 2])
-            with col1:
-                st.write(entry["id"])
-            with col2:
-                st.write(entry["title"])
-            with col3:
-                edit_btn = st.button("수정", key=f"edit-{entry['id']}")
+        if type(data) != dict:
+            for entry in data:
+                col1, col2, col3 = st.columns([1, 8, 2])
+                with col1:
+                    st.write(entry["id"])
+                with col2:
+                    st.write(entry["title"])
+                with col3:
+                    edit_btn = st.button("수정", key=f"edit-{entry['id']}")
 
-                if edit_btn:
-                    st.session_state["edit_id"] = entry["id"]
-                    st.session_state["page"] = "edit"
-                    st.rerun()
+                    if edit_btn:
+                        st.session_state["edit_id"] = entry["id"]
+                        st.session_state["page"] = "edit"
+                        st.rerun()
 
     # 수정 페이지
     elif st.session_state["page"] == "edit":
@@ -53,6 +56,7 @@ def page_1():
             updated_title = st.text_input("제목", value=entry_to_edit["title"])
             updated_date = st.text_input("날짜", value=entry_to_edit["date"])
             updated_image = st.text_input("이미지 URL", value=entry_to_edit["image"])
+            st.image(entry_to_edit["image"])
 
             col1, col2, col3, col4 = st.columns([1,1,1,7])
             # 저장 버튼
@@ -116,22 +120,23 @@ def page_2():
 
    # 목록 페이지
     if st.session_state["page"] == "list":
-        st.title("유저 정보 관리 (" + str(len(data)) + ")")
+        st.title("유저 정보 관리 (" + ('0' if type(data) == dict and data['message'] == "데이터가 없습니다" else str(len(data))) + ")")
 
-        # 데이터 출력
-        for entry in data:
-            col1, col2, col3 = st.columns([1, 8, 2])
-            with col1:
-                st.write(entry["id"])
-            with col2:
-                st.write(entry["name"])
-            with col3:
-                edit_btn = st.button("수정", key=f"edit-{entry['id']}")
+        if type(data) != dict:
+            # 데이터 출력
+            for entry in data:
+                col1, col2, col3 = st.columns([1, 8, 2])
+                with col1:
+                    st.write(entry["id"])
+                with col2:
+                    st.write(entry["name"])
+                with col3:
+                    edit_btn = st.button("수정", key=f"edit-{entry['id']}")
 
-                if edit_btn:
-                    st.session_state["edit_id"] = entry["id"]
-                    st.session_state["page"] = "edit"
-                    st.rerun()
+                    if edit_btn:
+                        st.session_state["edit_id"] = entry["id"]
+                        st.session_state["page"] = "edit"
+                        st.rerun()
     
     # 수정 페이지
     elif st.session_state["page"] == "edit":
@@ -145,7 +150,10 @@ def page_2():
             # 수정 폼
             updated_name = st.text_input("이름", value=entry_to_edit["name"])
             updated_bio = st.text_input("bio", value=entry_to_edit["bio"])
-            updated_tool = st.text_input("tool", value=entry_to_edit["tool"])
+            # updated_tool = st.text_input("tool", value=entry_to_edit["tool"])
+            st.text('기술 스택')
+            updated_tool = st.html(entry_to_edit["tool"])
+            
 
             col1, col2, col3, col4 = st.columns([1,1,1,7])
             # 저장 버튼
@@ -199,7 +207,31 @@ def page_2():
                 st.session_state["page"] = "list"
                 st.rerun()
 
+def page_3():
+    if "page" not in st.session_state:
+        st.session_state["page"] = "list"  # 기본 페이지는 리스트
+
+    # 현재 데이터베이스의 공모전 JSON 데이터를 로드
+    data = get_mysql_data()
+
+   # 목록 페이지
+    if st.session_state["page"] == "list":
+        st.title("데이터 관리")
+
+        crawl_btn = st.button("크롤링")
+        st.text("- 크롤링 및 이미지 압축/저장을 다시 진행합니다.")
+        st.text('')
+        st.text('')
+        delete_btn = st.button("데이터 삭제")
+        st.text("- 서버에서 압축 이미지 및 공모전 데이터를 삭제합니다.")
+
+        if crawl_btn:
+            insert_mysql_data()
+
+        if delete_btn:
+            reset_mysql_data()
 
 
-pg = st.navigation([st.Page(page_1, title="공모전 정보"), st.Page(page_2, title="유저 정보")])
+
+pg = st.navigation([st.Page(page_1, title="공모전 정보"), st.Page(page_2, title="유저 정보"), st.Page(page_3, title="데이터 관리")])
 pg.run()
