@@ -82,14 +82,19 @@ Main Branch
 ### 📁 File Structure
  ```
 RIMCMON
-├── 
 ├── Crawling/ #데이터 크롤링 관련
-├── Front/ #Main & Profile Web 관련
-├── PHP_Script/ #Main PHP Server 관련
-├── PHP_Script_Profile/ #Profile PHP Server 관련
-├── Python_Script/ #Main DB 관련
-├── Python_Script_Profile/ #Profile DB 관련
-├── TEST/
+├── Front/ #프론트엔드 코드 관련
+│   ├── img/ # 이미지 자원
+│   ├── mainpage/ # 메인 페이지 - 공모전, 스터디, 동아리, 팀원 모집, 자유 게시판
+│   ├── manage/ # 관리자 페이지 - 공모전 정보, 유저 정보, 데이터 관리
+│   └── profilepage/ # 프로필 페이지 - 로그인, 사용자 등록, 프로필 수정
+├── PHP_Script/ # mainpage PHP Server 관련
+├── PHP_Script_Manage/ # manage PHP Server 관련
+├── PHP_Script_Profile/ # profilepage PHP Server 관련
+├── Python_Script/ # mainpage DB 관련
+├── Python_Script/ # manage DB 관련
+├── Python_Script_Profile/ # profilepage DB 관련
+├── TEST/ # 렌더링 테스트
 ├── venv/ # 가상환경
 ├── .gitignore
 ├── README.md
