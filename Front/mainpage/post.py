@@ -107,9 +107,7 @@ def show_register_page():
             else:
                 st.warning("제목, 내용, 작성자를 모두 입력해주세요.")
 
-    if st.button("전체 게시판으로 돌아가기"):
-        st.session_state.page = "메인"
-        st.rerun()
+
 
 # 상세 페이지
 def show_detail_page():
@@ -147,7 +145,7 @@ def show_main_page():
         return
 
     search_query = st.text_input(" 🔍 검색창", "")
-    
+
     filtered_posts = [
         post for post in posts if search_query.lower() in post['title'].lower()
     ] if search_query.strip() else posts
